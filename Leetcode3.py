@@ -14,7 +14,8 @@ class Solution(object):
                     longestStringLength = j - i if longestStringLength < j - i else longestStringLength
         return longestStringLength
     
-    def lengthOfLongestSubstringFast(self, s):
+    # FASTER APPROACH
+    def lengthOfLongestSubstringFaster(self, s):
         longestStringLength = 0
         uniqueChars = set()
         left = 0
