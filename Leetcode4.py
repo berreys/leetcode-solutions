@@ -22,6 +22,7 @@ class Solution(object):
         # find middle of each list, compare
         # on larger number, find middle of left side of list, reverse for smaller number
         # TODO: Draw this out
+        #note: keep track of left side and right side. when you partition, higher number right side goes up, lower number left side goes up
         return
 
 solution = Solution()
