@@ -1,4 +1,5 @@
 # LEETCODE PROBLEM 1 : TWO SUM
+# https://leetcode.com/problems/two-sum/description/
 
 class Solution(object):
     # NESTED FOR LOOP APPROACH
