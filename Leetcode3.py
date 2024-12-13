@@ -1,4 +1,5 @@
 # LEETCODE PROBLEM 3 : LONGEST SUBSTRING WITHOUT REPEATING CHARACTERS
+# https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
 class Solution(object):
     # BRUTE FORCE APPROACH
