@@ -23,7 +23,25 @@ class Solution(object):
         # on larger number, find middle of left side of list, reverse for smaller number
         # TODO: Draw this out
         #note: keep track of left side and right side. when you partition, higher number right side goes up, lower number left side goes up
+        middleIndex1 = int(len(nums1) / 2)
+        middleIndex2 = int(len(nums2) / 2)
+        middle1 = nums1[middleIndex1]
+        middle2 = nums2[middleIndex2]
+        rightCount = 0
+        leftCount = 0
+
+        if middle1 < middle2:
+            leftCount += middleIndex1
+            rightCount += middleIndex2
+        else:
+            leftCount += middleIndex2
+            rightCount += middleIndex1
+
+        print(middle1)
+        print(middle2)
+        print(leftCount)
+        print(rightCount)
         return
 
 solution = Solution()
-print(solution.findMedianSortedArrays([1,2,3,4], [1,2,3,4]))
+print(solution.findMedianSortedArraysFaster([1,3,5,7], [1,2,3,4,5]))
