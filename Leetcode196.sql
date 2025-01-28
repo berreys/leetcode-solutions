@@ -1,5 +1,5 @@
 -- LEETCODE PROBLEM 196 : DELETE DUPLICATE EMAILS
--- https://leetcode.com/problems/delete-duplicate-emails/?envType=problem-list-v2&envId=2hv17fjt
+-- https://leetcode.com/problems/delete-duplicate-emails/description/
 
 DELETE a
 FROM Person a
