@@ -30,5 +30,8 @@ class Solution(object):
                     longest = longest if len(longest) > j - i else s[i:j]
         return longest
 
+    def longestPalindromeFaster(self, s):
+        
+
 solution = Solution()
 print(solution.longestPalindrome('cbbd'))
