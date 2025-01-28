@@ -31,6 +31,7 @@ class Solution(object):
         return longest
 
     def longestPalindromeFaster(self, s):
+        pass #TODO
         
 
 solution = Solution()
