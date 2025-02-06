@@ -1,5 +1,5 @@
 class Solution(object):
-    def maxArea(self, height):
+    def maxAreaSlow(self, height):
         """
         :type height: List[int]
         :rtype: int
@@ -14,6 +14,19 @@ class Solution(object):
             if map[i] > max_capacity:
                 max_tuple = i
                 max_capacity = map[i]
+        return max_capacity
+    def maxArea(self, height):
+        left_ptr = 0
+        right_ptr = len(height) - 1
+        max_capacity = min(height[left_ptr], height[right_ptr]) * (right_ptr - left_ptr)
+        while left_ptr < right_ptr:
+            current_capacity = min(height[left_ptr], height[right_ptr]) * (right_ptr - left_ptr)
+            if current_capacity > max_capacity:
+                max_capacity = current_capacity
+            if height[left_ptr] < height[right_ptr]:
+                left_ptr += 1
+            else:
+                right_ptr -= 1
         return max_capacity
 
 s = Solution()
