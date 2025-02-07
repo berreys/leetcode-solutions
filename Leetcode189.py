@@ -2,18 +2,16 @@
 # https://leetcode.com/problems/rotate-array/description/
 
 class Solution(object):
-    def rotate_slow(self, nums, k):
+    def rotate(self, nums, k):
         """
         :type nums: List[int]
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        for i in range(k):
-            self.rotate_once(nums)
-
-    def rotate_once(self, nums):
-        last = nums.pop()
-        nums.insert(0, last)
+        k = k % len(nums)
+        right = nums[len(nums) - k:len(nums)]
+        left = nums[0:len(nums) - k]
+        nums[:] = right + left
 
 s = Solution()
 l = [1,2,3,4,5]
