@@ -14,6 +14,18 @@ class Solution(object):
                 if diff > maxProfit:
                     maxProfit = diff
         return maxProfit
+    def maxProfitSlightlyFaster(self, prices):
+        myMap = {}
+        for i in range(1, len(prices)):
+            myMap[i-1] = prices[i] - prices[i-1]
+            for elem in myMap:
+                if prices[i] - prices[elem] > myMap[elem]:
+                    myMap[elem] = prices[i] - prices[elem]
+        max = 0
+        for elem in myMap:
+            if myMap[elem] > max:
+                max = myMap[elem]
+        return max
     
 s = Solution()
 print(s.maxProfit([7,1,5,3,6,4]))
