@@ -26,6 +26,18 @@ class Solution(object):
             if myMap[elem] > max:
                 max = myMap[elem]
         return max
-    
+    def maxProfit(self, prices):
+        low = prices[0]
+        max = 0
+        for i in prices:
+            if i < low:
+                low = i
+            elif i - low > max:
+                max = i - low
+        return max
+
+
+
 s = Solution()
 print(s.maxProfit([7,1,5,3,6,4]))
+print(s.maxProfit([2,1,4]))
