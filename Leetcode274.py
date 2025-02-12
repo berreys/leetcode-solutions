@@ -10,16 +10,14 @@ class Solution(object):
         myMap = {}
         for i in citations:
             myMap[i] = 0
-        print(myMap)
         for i in range(len(citations)):
             for j in range(1, citations[i] + 1):
                 if j in myMap:
-                    myMap[j] += 1                
-        print(myMap)
-        max = 1
+                    myMap[j] += 1
+        max = 0
         for key in myMap:
-            if myMap[key] >= key and key > max:
-                max = key
+            if min(key, myMap[key]) > max:
+                max = min(key, myMap[key])
         return max
     
 s = Solution()
