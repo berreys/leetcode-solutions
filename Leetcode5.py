@@ -31,8 +31,13 @@ class Solution(object):
         return longest
 
     def longestPalindromeFaster(self, s):
-        pass #TODO
+        longest = s[0:1]
+        print(longest)
+        left = 0
+        right = 1
+        middle = 0
+
         
 
 solution = Solution()
-print(solution.longestPalindrome('cbbd'))
+print(solution.longestPalindromeFaster('cbbd'))
