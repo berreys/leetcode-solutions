@@ -30,14 +30,38 @@ class Solution(object):
                     longest = longest if len(longest) > j - i else s[i:j]
         return longest
 
+    def getPalindrome(self, s1, s2, vertex):
+        si1 = len(s1) - 1
+        si2 = 0
+        while s1[si1] == s2[si2]:
+            si1 -= 1
+            si2 += 1
+            if si1 == -1 or si2 >= len(s2):
+                break
+        return s1[si1 + 1:] + vertex + s2[:si2]
+
     def longestPalindromeFaster(self, s):
-        longest = s[0:1]
-        print(longest)
-        left = 0
-        right = 1
-        middle = 0
+        if len(s) < 2 or (len(s) == 2 and s[0] == s[1]):
+            return s
+        longest = s[0]
+        for i in range(1, len(s)-1):
+            temp = ''
+            if s[i-1] == s[i+1]:
+                temp = self.getPalindrome(s[:i], s[i+1:], s[i])
+            elif s[i-1] == s[i]:
+                temp = self.getPalindrome(s[:i], s[i:], '')
+            longest = temp if len(temp) > len(longest) else longest
+        return longest
 
         
 
 solution = Solution()
-print(solution.longestPalindromeFaster('cbbd'))
+print(solution.longestPalindromeFaster('cbbd'))     # bb
+print(solution.longestPalindromeFaster('babad'))    # bab
+print(solution.longestPalindromeFaster('a'))        # a
+print(solution.longestPalindromeFaster('ab'))       # a
+print(solution.longestPalindromeFaster('abc'))      # a
+print(solution.longestPalindromeFaster('abcdefgh')) # a
+print(solution.longestPalindromeFaster('bb'))       # bb
+print(solution.longestPalindromeFaster('ccc'))      # ccc
+print(solution.longestPalindromeFaster('abb'))      #abb
