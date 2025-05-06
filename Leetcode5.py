@@ -44,16 +44,16 @@ class Solution(object):
         if len(s) < 2 or (len(s) == 2 and s[0] == s[1]):
             return s
         longest = s[0]
-        for i in range(1, len(s)-1):
+        for i in range(1, len(s)):
             temp = ''
-            if s[i-1] == s[i+1]:
+            if i < len(s) - 1 and s[i-1] == s[i+1]:
                 temp = self.getPalindrome(s[:i], s[i+1:], s[i])
-            elif s[i-1] == s[i]:
-                temp = self.getPalindrome(s[:i], s[i:], '')
+            if s[i-1] == s[i]:
+                temp1 = self.getPalindrome(s[:i], s[i:], '')
+                temp = temp1 if len(temp1) > len(temp) else temp
             longest = temp if len(temp) > len(longest) else longest
         return longest
 
-        
 
 solution = Solution()
 print(solution.longestPalindromeFaster('cbbd'))     # bb
@@ -64,4 +64,5 @@ print(solution.longestPalindromeFaster('abc'))      # a
 print(solution.longestPalindromeFaster('abcdefgh')) # a
 print(solution.longestPalindromeFaster('bb'))       # bb
 print(solution.longestPalindromeFaster('ccc'))      # ccc
-print(solution.longestPalindromeFaster('abb'))      #abb
+print(solution.longestPalindromeFaster('abb'))      # bb
+print(solution.longestPalindromeFaster('aaaa'))     # aaaa
