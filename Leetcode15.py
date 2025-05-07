@@ -35,7 +35,7 @@ class Solution(object):
             return int(len(nums) / 2) + index
     def threeSum(self, nums):
         nums = list(set(nums))
-        print(nums)
+        nums.sort()
         results = []
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
