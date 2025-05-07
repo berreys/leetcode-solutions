@@ -34,28 +34,34 @@ class Solution(object):
                 return index
             return int(len(nums) / 2) + index
     def threeSum(self, nums):
-        # sort the array
-        # nested for loop - for each pair of numbers, find the compliment - use binary search to find it
+        nums = list(set(nums))
+        print(nums)
+        results = []
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                compliment_index = self.binarySearchForNumber(nums, 0 - nums[i] - nums[j])
+                if compliment_index != -1 and compliment_index != i != j:
+                    results.append([nums[i], nums[j], nums[compliment_index]])
+        return results
 
-        pass
     
 s = Solution()
-print(s.threeSumSlow([-1,0,1,2,-1,-4]))
+print(s.threeSum([-1,0,1,2,-1,-4]))
 
-print(s.binarySearchForNumber([1,2,3,4,5], 1))
-print(s.binarySearchForNumber([1,2,3,4,5], 2))
-print(s.binarySearchForNumber([1,2,3,4,5], 3))
-print(s.binarySearchForNumber([1,2,3,4,5], 4))
-print(s.binarySearchForNumber([1,2,3,4,5], 5))
-print(s.binarySearchForNumber([1,2,3,4,5], 6))
-print(s.binarySearchForNumber([1,2,3,4,5], 0))
-print(s.binarySearchForNumber([1,2,3,4,5], 1.5))
-print(s.binarySearchForNumber([1,2,3,4,5], 2.5))
-print(s.binarySearchForNumber([1,2,3,4,5], 3.5))
-print(s.binarySearchForNumber([1,2,3,4,5], 4.5))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 1))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 2))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 3))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 4))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 5))
-print(s.binarySearchForNumber([1,2,3,4,5,6], 6))
+# print(s.binarySearchForNumber([1,2,3,4,5], 1))
+# print(s.binarySearchForNumber([1,2,3,4,5], 2))
+# print(s.binarySearchForNumber([1,2,3,4,5], 3))
+# print(s.binarySearchForNumber([1,2,3,4,5], 4))
+# print(s.binarySearchForNumber([1,2,3,4,5], 5))
+# print(s.binarySearchForNumber([1,2,3,4,5], 6))
+# print(s.binarySearchForNumber([1,2,3,4,5], 0))
+# print(s.binarySearchForNumber([1,2,3,4,5], 1.5))
+# print(s.binarySearchForNumber([1,2,3,4,5], 2.5))
+# print(s.binarySearchForNumber([1,2,3,4,5], 3.5))
+# print(s.binarySearchForNumber([1,2,3,4,5], 4.5))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 1))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 2))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 3))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 4))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 5))
+# print(s.binarySearchForNumber([1,2,3,4,5,6], 6))
