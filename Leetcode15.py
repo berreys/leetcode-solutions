@@ -43,11 +43,32 @@ class Solution(object):
                 if compliment_index != -1 and compliment_index != i != j:
                     results.append([nums[i], nums[j], nums[compliment_index]])
         return results
+    def twoSumHelper(self, nums, target):
+        d = {}
+        for i in range(len(nums)):
+            if target - nums[i] in d:
+                return [d[target - nums[i]], i]
+            else:
+                d[nums[i]] = i
+    def twoSum(self, nums, target):
+        temp = self.twoSumHelper(nums, target)
+        if temp:
+            return [nums[temp[0]], nums[temp[1]]]
+    def threeSumFaster(self, nums):
+        results = set()
+        for i in range(len(nums)):
+            temp = self.twoSum(nums[:i] + nums[i+1:], -1 * nums[i])
+            if temp:
+                temp.append(nums[i])
+                results.add(tuple(sorted(temp)))
+        return [list(i) for i in results]
+            
+    
 
     
 s = Solution()
-print(s.threeSum([-1,0,1,2,-1,-4]))
-
+print(s.threeSumFaster([-1,0,1,2,-1,-4]))
+print(s.threeSumFaster([-1,0,1,2,-1,-4,-2,-3,3,0,4]))
 # print(s.binarySearchForNumber([1,2,3,4,5], 1))
 # print(s.binarySearchForNumber([1,2,3,4,5], 2))
 # print(s.binarySearchForNumber([1,2,3,4,5], 3))
