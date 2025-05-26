@@ -9,9 +9,11 @@ class Solution(object):
         """
         if len(nums) == 1:
             return nums[0]
+        if max(nums) < 0:
+            return max(nums)
         right = left = 0
-        max_sum = min(nums)
-        current_sum = nums[0]
+        max_sum = 0
+        current_sum = 0
         while right < len(nums):
             current_sum += nums[right]
             while current_sum < 0:
@@ -25,3 +27,4 @@ class Solution(object):
 s = Solution()
 print(s.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
 print(s.maxSubArray([5,4,-1,7,8]))
+print(s.maxSubArray([-2, -1]))
