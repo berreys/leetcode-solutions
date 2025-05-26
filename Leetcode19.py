@@ -31,3 +31,5 @@ n1 = ListNode(1, n2)
 from util import Util
 u = Util()
 u.printLinkedList(n1)
+# u.printLinkedList(Solution().removeNthFromEnd(n1, 2))
+u.printLinkedList(Solution().removeNthFromEnd(n5, 1))
